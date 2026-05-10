@@ -263,7 +263,6 @@ section{padding:56px 20px}
           </div>
         </div>
         <div class="form-group"><label class="form-label" data-ru="Описание товара" data-kg="Товардын сүрөттөмөсү">Описание товара</label><textarea class="form-textarea" id="s-desc" placeholder="Материал, размер, особенности..."></textarea></div>
-        <div class="form-group"><label class="form-label" data-ru="Фото товара" data-kg="Товардын сүрөтү">Фото товара</label><div class="upload-zone" onclick="document.getElementById('s-photo').click()"><span data-ru="📷 Нажмите чтобы загрузить фото" data-kg="📷 Сүрөт жүктөө үчүн басыңыз">📷 Нажмите чтобы загрузить фото</span><br><small>JPG, PNG до 10 МБ</small><input type="file" id="s-photo" accept="image/*" style="display:none" multiple></div></div>
         <div class="form-row">
           <div class="form-group"><label class="form-label" data-ru="Ваше имя *" data-kg="Атыңыз *">Ваше имя *</label><input class="form-input" type="text" id="s-seller" placeholder="Азамат"></div>
           <div class="form-group"><label class="form-label">WhatsApp *</label><input class="form-input" type="tel" id="s-phone" placeholder="+996 XXX XXX XXX"></div>
@@ -378,26 +377,29 @@ function submitSeller(){
   var seller=document.getElementById('s-seller').value.trim();
   var phone=document.getElementById('s-phone').value.trim();
   if(!name||!price||!seller||!phone){
-    alert(currentLang==='ru'?'Заполните обязательные поля: название, цена, имя и WhatsApp':'Милдеттүү талааларды толтуруңуз');
+    alert(currentLang==='ru'?'Заполните обязательные поля: название, цена, имя и WhatsApp':'Милдеттуу талааларды толтуруунуз');
     return;
   }
-  var msg='🛍 '+(currentLang==='ru'?'Новая заявка от продавца!':'Сатуучудан жаңы арыз!')+'\n\n';
-  msg+='📦 Товар: '+name+'\n💰 '+(currentLang==='ru'?'Цена':'Баасы')+': '+price+' сом\n';
-  msg+='📂 '+(currentLang==='ru'?'Категория':'Категория')+': '+(cat||'—')+'\n';
-  if(desc)msg+='📝 '+(currentLang==='ru'?'Описание':'Сүрөттөмө')+': '+desc+'\n';
-  msg+='\n👤 '+(currentLang==='ru'?'Продавец':'Сатуучу')+': '+seller+'\n📞 WhatsApp: '+phone;
+  var msg='=== '+(currentLang==='ru'?'Новая заявка от продавца':'Сатуучудан жаны арыз')+' ===\n\n';
+  msg+=(currentLang==='ru'?'Товар':'Товар')+': '+name+'\n';
+  msg+=(currentLang==='ru'?'Цена':'Баасы')+': '+price+' сом\n';
+  msg+=(currentLang==='ru'?'Категория':'Категория')+': '+(cat||'—')+'\n';
+  if(desc)msg+=(currentLang==='ru'?'Описание':'Суроттомо')+': '+desc+'\n';
+  msg+='\n'+(currentLang==='ru'?'Продавец':'Сатуучу')+': '+seller+'\n';
+  msg+='WhatsApp: '+phone;
   window.open('https://wa.me/996556030083?text='+encodeURIComponent(msg),'_blank');
 }
 function submitContact(){
   var name=document.getElementById('c-name').value.trim();
   var phone=document.getElementById('c-phone').value.trim();
   var msg=document.getElementById('c-msg').value.trim();
-  if(!msg){alert(currentLang==='ru'?'Напишите ваше сообщение':'Кабарыңызды жазыңыз');return;}
-  var text=(currentLang==='ru'?'Сообщение с сайта 7 Маркет':'7 Маркет сайтынан кабар')+'\n\n';
-  if(name)text+='👤 '+(currentLang==='ru'?'Имя':'Аты')+': '+name+'\n';
-  if(phone)text+='📞 Телефон: '+phone+'\n';
-  text+='\n💬 '+msg;
+  if(!msg){alert(currentLang==='ru'?'Напишите ваше сообщение':'Кабарынызды жазынуз');return;}
+  var text='=== '+(currentLang==='ru'?'Сообщение с сайта 7 Маркет':'7 Маркет сайтынан кабар')+' ===\n\n';
+  if(name)text+=(currentLang==='ru'?'Имя':'Аты')+': '+name+'\n';
+  if(phone)text+='Телефон: '+phone+'\n';
+  text+='\n'+(currentLang==='ru'?'Сообщение':'Кабар')+': '+msg;
   window.open('https://wa.me/996556030083?text='+encodeURIComponent(text),'_blank');
+}
 }
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
