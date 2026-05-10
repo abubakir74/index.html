@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 Маркет — Всё для дома в Кыргызстане</title>
+<meta name="description" content="Интернет-магазин 7 Маркет в городе Өзгөн. Бытовые товары с доставкой по всему Кыргызстану.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1a7a3c;--green-light:#22a050;--green-pale:#e8f5ee;--green-dark:#0f4d24;--black:#111111;--gray:#6b6b6b;--gray-light:#f4f4f2;--white:#ffffff;--border:#e0e0dc;--radius:12px;--radius-sm:8px}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--gray-light)}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:100px}
+::-webkit-scrollbar-thumb:hover{background:var(--green-light)}
+*{scrollbar-width:thin;scrollbar-color:var(--green) var(--gray-light);box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Golos Text',sans-serif;color:var(--black);background:var(--white);line-height:1.6;overflow-x:hidden}
+.lang-bar{background:var(--black);padding:6px 24px;display:flex;justify-content:flex-end;align-items:center;gap:4px}
+.lang-bar span{font-size:12px;color:#888;margin-right:4px}
+.lang-btn{background:none;border:1px solid rgba(255,255,255,0.15);color:#888;padding:3px 10px;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Golos Text',sans-serif;transition:all 0.2s}
+.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+.lang-btn:hover:not(.active){border-color:rgba(255,255,255,0.4);color:#fff}
+header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:700;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-badge{background:var(--green);color:#fff;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;flex-shrink:0}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-size:15px;font-weight:500;color:var(--black);text-decoration:none;transition:color 0.2s}
+nav a:hover{color:var(--green)}
+.header-wa{background:var(--green);color:#fff;padding:10px 20px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;text-decoration:none;transition:background 0.2s;white-space:nowrap}
+.header-wa:hover{background:var(--green-light)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.burger span{display:block;width:24px;height:2px;background:var(--black);border-radius:2px}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--white);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:'Unbounded',sans-serif;font-size:22px;font-weight:700;color:var(--black);text-decoration:none;transition:color 0.2s}
+.mobile-nav a:hover{color:var(--green)}
+.mob-close{position:absolute;top:20px;right:24px;font-size:28px;cursor:pointer;background:none;border:none;color:var(--black)}
+.mob-wa{background:var(--green)!important;color:#fff!important;padding:14px 32px;border-radius:var(--radius-sm);font-size:16px!important}
+.hero{background:var(--black);padding:100px 24px 90px;position:relative;overflow:hidden}
+.hero::before{content:'7';position:absolute;right:-2%;top:-10%;font-family:'Unbounded',sans-serif;font-size:40vw;font-weight:700;color:var(--green-dark);opacity:0.2;line-height:1;pointer-events:none;user-select:none}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-tag{display:inline-block;background:var(--green);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:28px}
+.hero h1{font-family:'Unbounded',sans-serif;font-size:clamp(28px,5vw,64px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:20px;max-width:700px}
+.hero h1 .green-text{color:var(--green-light)}
+.hero-desc{font-size:18px;color:#aaa;max-width:500px;margin-bottom:40px;line-height:1.6}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-family:'Golos Text',sans-serif;font-size:16px;font-weight:600;padding:14px 28px;border-radius:var(--radius-sm);text-decoration:none;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s}
+.btn-primary:hover{background:var(--green-light);transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-family:'Golos Text',sans-serif;font-size:16px;font-weight:600;padding:14px 28px;border-radius:var(--radius-sm);text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);cursor:pointer;transition:border-color 0.2s,transform 0.15s}
+.btn-outline:hover{border-color:#fff;transform:translateY(-1px)}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap;margin-top:64px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1)}
+.stat-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:700;color:#fff}
+.stat-label{font-size:13px;color:#888;margin-top:3px}
+section{padding:80px 24px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-tag{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.section-title{font-family:'Unbounded',sans-serif;font-size:clamp(22px,3vw,36px);font-weight:700;line-height:1.2;margin-bottom:14px}
+.section-sub{font-size:17px;color:var(--gray);max-width:520px;margin-bottom:48px}
+.how{background:var(--black)}
+.how .section-tag{color:var(--green-light)}
+.how .section-title,.how .section-sub{color:#fff}
+.how .section-sub{color:#888}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.07);border-radius:var(--radius);overflow:hidden}
+.step{background:#1a1a1a;padding:36px 28px}
+.step-num{font-family:'Unbounded',sans-serif;font-size:48px;font-weight:700;color:var(--green);opacity:0.35;line-height:1;margin-bottom:20px}
+.step-title{font-size:18px;font-weight:600;color:#fff;margin-bottom:10px}
+.step-desc{font-size:14px;color:#888;line-height:1.6}
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.adv-card{border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color 0.2s,transform 0.2s}
+.adv-card:hover{border-color:var(--green);transform:translateY(-3px)}
+.adv-icon{width:48px;height:48px;background:var(--green-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.adv-title{font-size:17px;font-weight:600;margin-bottom:8px}
+.adv-desc{font-size:14px;color:var(--gray);line-height:1.6}
+.sellers{background:var(--green-pale)}
+.sellers-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.sellers-perks{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.perk{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:14px}
+.perk-ico{width:44px;height:44px;flex-shrink:0;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.perk-title{font-size:15px;font-weight:600;margin-bottom:2px}
+.perk-desc{font-size:13px;color:var(--gray)}
+.seller-form{background:#fff;border:1px solid var(--border);border-radius:16px;padding:36px}
+.seller-form h3{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--black)}
+.form-input,.form-select,.form-textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Golos Text',sans-serif;font-size:15px;color:var(--black);background:#fff;outline:none;transition:border-color 0.2s;appearance:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--green)}
+.form-textarea{height:90px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.upload-zone{border:2px dashed var(--border);border-radius:var(--radius-sm);padding:20px;text-align:center;cursor:pointer;transition:border-color 0.2s,color 0.2s;color:var(--gray);font-size:14px;line-height:1.6}
+.upload-zone:hover{border-color:var(--green);color:var(--green)}
+.form-btn{width:100%;background:var(--green);color:#fff;border:none;border-radius:var(--radius-sm);padding:14px;font-size:16px;font-weight:600;cursor:pointer;font-family:'Golos Text',sans-serif;transition:background 0.2s;margin-top:8px}
+.form-btn:hover{background:var(--green-light)}
+.faq{background:var(--gray-light)}
+.faq-list{max-width:760px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;text-align:left;cursor:pointer;padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'Golos Text',sans-serif;font-size:16px;font-weight:600;color:var(--black);transition:color 0.2s}
+.faq-q:hover{color:var(--green)}
+.faq-icon{width:28px;height:28px;flex-shrink:0;background:var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform 0.3s,background 0.2s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--green);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;font-size:15px;color:var(--gray);line-height:1.7}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.contact-card h3{font-family:'Unbounded',sans-serif;font-size:18px;font-weight:700;margin-bottom:24px}
+.contact-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.contact-ico{width:40px;height:40px;flex-shrink:0;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.contact-lbl{font-size:12px;color:var(--gray);margin-bottom:2px}
+.contact-val{font-size:15px;font-weight:600}
+.contact-val a{color:var(--black);text-decoration:none}
+.contact-val a:hover{color:var(--green)}
+.social-btns{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.soc-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;text-decoration:none;transition:opacity 0.2s}
+.soc-btn:hover{opacity:0.85}
+.soc-wa{background:#25d366;color:#fff}
+.soc-ig{background:#e1306c;color:#fff}
+footer{background:var(--black);padding:48px 24px 32px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:24px}
+.footer-logo{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:700;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.footer-desc{font-size:14px;color:#888;line-height:1.7;max-width:260px}
+.footer-links h4{font-size:12px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px}
+.footer-links a{display:block;font-size:14px;color:#888;text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:99;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s}
+.wa-float:hover{transform:scale(1.1)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-inner>*{animation:fadeUp 0.6s ease both}
+.hero-inner>*:nth-child(1){animation-delay:0.1s}
+.hero-inner>*:nth-child(2){animation-delay:0.2s}
+.hero-inner>*:nth-child(3){animation-delay:0.3s}
+.hero-inner>*:nth-child(4){animation-delay:0.4s}
+.hero-inner>*:nth-child(5){animation-delay:0.5s}
+@media(max-width:768px){
+nav,.header-wa{display:none}
+.burger{display:flex}
+.hero{padding:60px 20px 50px}
+.hero::before{font-size:70vw;opacity:0.15}
+.hero-btns{flex-direction:column}
+.btn-primary,.btn-outline{width:100%;justify-content:center}
+.hero-stats{gap:24px;margin-top:40px;padding-top:28px}
+.stat-num{font-size:22px}
+section{padding:56px 20px}
+.steps{grid-template-columns:1fr}
+.sellers-inner{grid-template-columns:1fr;gap:32px}
+.seller-form{padding:24px}
+.form-row{grid-template-columns:1fr}
+.contacts-grid{grid-template-columns:1fr}
+.footer-top{flex-direction:column;gap:28px}}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <span>🌐</span>
+  <button class="lang-btn active" onclick="setLang('ru')" id="btn-ru">RU</button>
+  <button class="lang-btn" onclick="setLang('kg')" id="btn-kg">KG</button>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo"><span class="logo-badge">7</span>Маркет</a>
+    <nav>
+      <a href="#how" data-ru="Как заказать" data-kg="Кантип буйрутма берем">Как заказать</a>
+      <a href="#sellers" data-ru="Продавцам" data-kg="Сатуучуларга">Продавцам</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts" data-ru="Контакты" data-kg="Байланыш">Контакты</a>
+    </nav>
+    <a href="https://wa.me/996556030083" class="header-wa" target="_blank">WhatsApp</a>
+    <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mob-close" onclick="toggleMenu()">✕</button>
+  <a href="#how" onclick="toggleMenu()" data-ru="Как заказать" data-kg="Кантип буйрутма берем">Как заказать</a>
+  <a href="#sellers" onclick="toggleMenu()" data-ru="Продавцам" data-kg="Сатуучуларга">Продавцам</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#contacts" onclick="toggleMenu()" data-ru="Контакты" data-kg="Байланыш">Контакты</a>
+  <a href="https://wa.me/996556030083" class="mob-wa" target="_blank">WhatsApp</a>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">Өзгөн · Кыргызстан</span>
+    <h1>
+      <span data-ru="Всё для дома —" data-kg="Үй үчүн баары —">Всё для дома —</span><br>
+      <span class="green-text" data-ru="в одном месте" data-kg="бир жерде">в одном месте</span>
+    </h1>
+    <p class="hero-desc" data-ru="Бытовые товары с быстрой доставкой по всему Кыргызстану. Удобный каталог, честные цены." data-kg="Тез жеткирүү менен турмуш-тиричилик товарлары. Ыңгайлуу каталог, адилет баалар.">Бытовые товары с быстрой доставкой по всему Кыргызстану. Удобный каталог, честные цены.</p>
+    <div class="hero-btns">
+      <a href="https://b2b.moysklad.ru/public/qQLeoMdHrYYH" class="btn-primary" target="_blank" data-ru="Перейти в каталог →" data-kg="Каталогго өтүү →">Перейти в каталог →</a>
+      <a href="https://wa.me/996556030083" class="btn-outline" target="_blank" data-ru="Написать в WhatsApp" data-kg="WhatsApp жазуу">Написать в WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">500+</div><div class="stat-label" data-ru="Товаров в каталоге" data-kg="Каталогдогу товарлар">Товаров в каталоге</div></div>
+      <div><div class="stat-num" data-ru="1 день" data-kg="1 күн">1 день</div><div class="stat-label" data-ru="Доставка по городу" data-kg="Шаар боюнча жеткирүү">Доставка по городу</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label" data-ru="Гарантия качества" data-kg="Сапат кепилдиги">Гарантия качества</div></div>
+      <div><div class="stat-num" data-ru="3 года" data-kg="3 жыл">3 года</div><div class="stat-label" data-ru="На рынке" data-kg="Рынокто">На рынке</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="section-inner">
+    <p class="section-tag" data-ru="Просто и быстро" data-kg="Жөнөкөй жана тез">Просто и быстро</p>
+    <h2 class="section-title" data-ru="Как сделать заказ" data-kg="Кантип буйрутма берем">Как сделать заказ</h2>
+    <p class="section-sub" data-ru="Три простых шага — и товар уже едет к вам" data-kg="Үч жөнөкөй кадам — товар сизге жол алды">Три простых шага — и товар уже едет к вам</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div class="step-title" data-ru="Выберите товар" data-kg="Товар тандаңыз">Выберите товар</div><div class="step-desc" data-ru="Откройте каталог, найдите нужный товар и запомните его название." data-kg="Каталогду ачып, керектүү товарды таап, атын эстеп алыңыз.">Откройте каталог, найдите нужный товар и запомните его название.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title" data-ru="Напишите нам" data-kg="Бизге жазыңыз">Напишите нам</div><div class="step-desc" data-ru="Отправьте название товара в WhatsApp — подтвердим наличие и оформим заказ." data-kg="Товардын атын WhatsAppка жөнөтүңүз — жеткиликтүүлүгүн ырастап, буйрутманы тариздейбиз.">Отправьте название товара в WhatsApp — подтвердим наличие и оформим заказ.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title" data-ru="Получите товар" data-kg="Товарды алыңыз">Получите товар</div><div class="step-desc" data-ru="Доставим в удобное время. Оплата при получении или переводом." data-kg="Ыңгайлуу убакта жеткиребиз. Алгандан кийин же которуу аркылуу төлөм.">Доставим в удобное время. Оплата при получении или переводом.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <p class="section-tag" data-ru="Почему мы" data-kg="Эмне үчүн биз">Почему мы</p>
+    <h2 class="section-title" data-ru="Наши преимущества" data-kg="Биздин артыкчылыктар">Наши преимущества</h2>
+    <p class="section-sub" data-ru="Работаем честно и заботимся о каждом клиенте" data-kg="Чынчылдык менен иштейбиз жана ар бир кардар жөнүндө кам көрөбүз">Работаем честно и заботимся о каждом клиенте</p>
+    <div class="adv-grid">
+      <div class="adv-card"><div class="adv-icon">🚚</div><div class="adv-title" data-ru="Быстрая доставка" data-kg="Тез жеткирүү">Быстрая доставка</div><div class="adv-desc" data-ru="По Өзгөну — в день заказа. По всему Кыргызстану — 1–3 дня." data-kg="Өзгөн боюнча — буйрутма берген күнү. Кыргызстан боюнча — 1–3 күн.">По Өзгөну — в день заказа. По всему Кыргызстану — 1–3 дня.</div></div>
+      <div class="adv-card"><div class="adv-icon">✅</div><div class="adv-title" data-ru="Проверенные товары" data-kg="Текшерилген товарлар">Проверенные товары</div><div class="adv-desc" data-ru="Все товары проходят проверку качества перед отправкой." data-kg="Бардык товарлар жөнөтүлүүдөн мурун сапат текшерүүдөн өтөт.">Все товары проходят проверку качества перед отправкой.</div></div>
+      <div class="adv-card"><div class="adv-icon">💬</div><div class="adv-title" data-ru="Поддержка 24/7" data-kg="Колдоо 24/7">Поддержка 24/7</div><div class="adv-desc" data-ru="Всегда на связи в WhatsApp. Поможем выбрать и оформить заказ." data-kg="WhatsAppта дайым байланышта. Тандоого жана буйрутма берүүгө жардам беребиз.">Всегда на связи в WhatsApp. Поможем выбрать и оформить заказ.</div></div>
+      <div class="adv-card"><div class="adv-icon">🔄</div><div class="adv-title" data-ru="Возврат и обмен" data-kg="Кайтаруу жана алмаштыруу">Возврат и обмен</div><div class="adv-desc" data-ru="Если товар не подошёл — обменяем или вернём деньги." data-kg="Товар жарабаса — алмаштырабыз же акчаны кайтарабыз.">Если товар не подошёл — обменяем или вернём деньги.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sellers" id="sellers">
+  <div class="section-inner">
+    <div class="sellers-inner">
+      <div>
+        <p class="section-tag" data-ru="Для продавцов" data-kg="Сатуучулар үчүн">Для продавцов</p>
+        <h2 class="section-title" data-ru="Продавайте через 7 Маркет" data-kg="7 Маркет аркылуу сатыңыз">Продавайте через 7 Маркет</h2>
+        <p class="section-sub" data-ru="Добавьте свои товары на платформу и получайте покупателей со всего Кыргызстана." data-kg="Товарларыңызды платформага кошуп, бүткүл Кыргызстандан сатып алуучулар алыңыз.">Добавьте свои товары на платформу и получайте покупателей со всего Кыргызстана.</p>
+        <div class="sellers-perks">
+          <div class="perk"><div class="perk-ico">📦</div><div><div class="perk-title" data-ru="Бесплатное размещение" data-kg="Акысыз жайгаштыруу">Бесплатное размещение</div><div class="perk-desc" data-ru="Добавляйте товары без комиссии на старте" data-kg="Башында комиссиясыз товарларды кошуңуз">Добавляйте товары без комиссии на старте</div></div></div>
+          <div class="perk"><div class="perk-ico">👥</div><div><div class="perk-title" data-ru="Готовая аудитория" data-kg="Даяр аудитория">Готовая аудитория</div><div class="perk-desc" data-ru="Покупатели уже ищут товары на нашей платформе" data-kg="Сатып алуучулар платформабызда товар издеп жатышат">Покупатели уже ищут товары на нашей платформе</div></div></div>
+          <div class="perk"><div class="perk-ico">📈</div><div><div class="perk-title" data-ru="Простое управление" data-kg="Жөнөкөй башкаруу">Простое управление</div><div class="perk-desc" data-ru="Добавляйте и редактируйте товары в любое время" data-kg="Каалаган убакта товарларды кошуп жана өзгөртүңүз">Добавляйте и редактируйте товары в любое время</div></div></div>
+          <div class="perk"><div class="perk-ico">💬</div><div><div class="perk-title" data-ru="Поддержка продавцов" data-kg="Сатуучуларды колдоо">Поддержка продавцов</div><div class="perk-desc" data-ru="Поможем оформить карточки и начать продажи" data-kg="Карточкаларды тариздеп сатууну баштоого жардам беребиз">Поможем оформить карточки и начать продажи</div></div></div>
+        </div>
+      </div>
+      <div class="seller-form">
+        <h3 data-ru="Добавить товар" data-kg="Товар кошуу">Добавить товар</h3>
+        <div class="form-group"><label class="form-label" data-ru="Название товара *" data-kg="Товардын аты *">Название товара *</label><input class="form-input" type="text" id="s-name" placeholder="Например: Чайник Tefal 1.7л"></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label" data-ru="Цена (сом) *" data-kg="Баасы (сом) *">Цена (сом) *</label><input class="form-input" type="number" id="s-price" placeholder="1290"></div>
+          <div class="form-group"><label class="form-label" data-ru="Категория *" data-kg="Категория *">Категория *</label>
+            <select class="form-select" id="s-cat">
+              <option value="">Выберите...</option>
+              <option>Кухня и посуда</option>
+              <option>Бытовая техника</option>
+              <option>Текстиль</option>
+              <option>Уборка</option>
+              <option>Освещение</option>
+              <option>Декор</option>
+              <option>Другое</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label class="form-label" data-ru="Описание товара" data-kg="Товардын сүрөттөмөсү">Описание товара</label><textarea class="form-textarea" id="s-desc" placeholder="Материал, размер, особенности..."></textarea></div>
+        <div class="form-group"><label class="form-label" data-ru="Фото товара" data-kg="Товардын сүрөтү">Фото товара</label><div class="upload-zone" onclick="document.getElementById('s-photo').click()"><span data-ru="📷 Нажмите чтобы загрузить фото" data-kg="📷 Сүрөт жүктөө үчүн басыңыз">📷 Нажмите чтобы загрузить фото</span><br><small>JPG, PNG до 10 МБ</small><input type="file" id="s-photo" accept="image/*" style="display:none" multiple></div></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label" data-ru="Ваше имя *" data-kg="Атыңыз *">Ваше имя *</label><input class="form-input" type="text" id="s-seller" placeholder="Азамат"></div>
+          <div class="form-group"><label class="form-label">WhatsApp *</label><input class="form-input" type="tel" id="s-phone" placeholder="+996 XXX XXX XXX"></div>
+        </div>
+        <button class="form-btn" onclick="submitSeller()" data-ru="Отправить заявку →" data-kg="Арызды жөнөтүү →">Отправить заявку →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <p class="section-tag" data-ru="Вопросы и ответы" data-kg="Суроолор жана жооптор">Вопросы и ответы</p>
+    <h2 class="section-title" data-ru="Часто спрашивают" data-kg="Көп суралган суроолор">Часто спрашивают</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Как оформить заказ?" data-kg="Кантип буйрутма берем?">Как оформить заказ?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Откройте каталог, найдите нужный товар и напишите нам в WhatsApp. Укажите название и адрес доставки — мы всё оформим." data-kg="Каталогду ачып, керектүү товарды таап, бизге WhatsAppка жазыңыз. Товардын атын жана дарегин айтыңыз — биз баарын тариздейбиз.">Откройте каталог, найдите нужный товар и напишите нам в WhatsApp. Укажите название и адрес доставки — мы всё оформим.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Как быстро доставляете?" data-kg="Канча убакта жеткиресиз?">Как быстро доставляете?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="По городу Өзгөн — в день заказа. По Ошской области — 1–2 дня. По всему Кыргызстану — 2–4 дня." data-kg="Өзгөн шаары боюнча — буйрутма берген күнү. Ош облусу боюнча — 1–2 күн. Бүткүл Кыргызстан боюнча — 2–4 күн.">По городу Өзгөн — в день заказа. По Ошской области — 1–2 дня. По всему Кыргызстану — 2–4 дня.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Как оплатить заказ?" data-kg="Буйрутманы кантип төлөйм?">Как оплатить заказ?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Принимаем наличными при получении, переводом на карту, а также через Мбанк, О!Деньги и Элсом." data-kg="Алгандан кийин накталай, картага которуу, ошондой эле Мбанк, О!Акча жана Элсом аркылуу кабыл алабыз.">Принимаем наличными при получении, переводом на карту, а также через Мбанк, О!Деньги и Элсом.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Можно ли вернуть товар?" data-kg="Товарды кайтарсам болобу?">Можно ли вернуть товар?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Да. Если товар с браком или не соответствует описанию — возврат или обмен в течение 7 дней." data-kg="Ооба. Товарда ак бар же сүрөттөмөгө туура келбесе — 7 күн ичинде кайтаруу же алмаштыруу.">Да. Если товар с браком или не соответствует описанию — возврат или обмен в течение 7 дней.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Как добавить товар на платформу?" data-kg="Товарды платформага кантип кошом?">Как добавить товар на платформу?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Заполните форму в разделе «Продавцам» — название, цена, категория и фото. Рассмотрим заявку в течение 24 часов." data-kg="«Сатуучулар» бөлүмүндөгү формани толтуруңуз — аты, баасы, категориясы жана сүрөт. Арызды 24 саат ичинде карайбыз.">Заполните форму в разделе «Продавцам» — название, цена, категория и фото. Рассмотрим заявку в течение 24 часов.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Есть ли минимальная сумма заказа?" data-kg="Буйрутманын минималдуу суммасы барбы?">Есть ли минимальная сумма заказа?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Нет минимальной суммы. Доставка по Өзгөну бесплатна при заказе от 1 000 сом." data-kg="Минималдуу сумма жок. 1 000 сомдон жогору буйрутмада Өзгөн боюнча жеткирүү акысыз.">Нет минимальной суммы. Доставка по Өзгөну бесплатна при заказе от 1 000 сом.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-light)" id="contacts">
+  <div class="section-inner">
+    <p class="section-tag" data-ru="Связаться с нами" data-kg="Биз менен байланышуу">Связаться с нами</p>
+    <h2 class="section-title" data-ru="Контакты" data-kg="Байланыш">Контакты</h2>
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <h3 data-ru="Наши контакты" data-kg="Биздин байланыштар">Наши контакты</h3>
+        <div class="contact-row"><div class="contact-ico">📍</div><div><div class="contact-lbl" data-ru="Адрес" data-kg="Дарек">Адрес</div><div class="contact-val">г. Өзгөн, Кыргызстан</div></div></div>
+        <div class="contact-row"><div class="contact-ico">📞</div><div><div class="contact-lbl" data-ru="Телефон" data-kg="Телефон">Телефон</div><div class="contact-val"><a href="tel:+996556030083">+996 556 030 083</a></div></div></div>
+        <div class="contact-row"><div class="contact-ico">🕐</div><div><div class="contact-lbl" data-ru="Режим работы" data-kg="Иш убактысы">Режим работы</div><div class="contact-val" data-ru="Пн–Вс: 9:00 – 21:00" data-kg="Дш–Жк: 9:00 – 21:00">Пн–Вс: 9:00 – 21:00</div></div></div>
+        <div class="social-btns">
+          <a href="https://wa.me/996556030083" class="soc-btn soc-wa" target="_blank">WhatsApp</a>
+          <a href="https://www.instagram.com/7.market__" class="soc-btn soc-ig" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3 data-ru="Написать нам" data-kg="Бизге жазуу">Написать нам</h3>
+        <div class="form-group"><label class="form-label" data-ru="Ваше имя" data-kg="Атыңыз">Ваше имя</label><input class="form-input" type="text" id="c-name" placeholder="Азамат"></div>
+        <div class="form-group"><label class="form-label">Телефон / WhatsApp</label><input class="form-input" type="tel" id="c-phone" placeholder="+996 XXX XXX XXX"></div>
+        <div class="form-group"><label class="form-label" data-ru="Сообщение" data-kg="Кабар">Сообщение</label><textarea class="form-textarea" id="c-msg" placeholder="Напишите ваш вопрос..."></textarea></div>
+        <button class="form-btn" onclick="submitContact()" data-ru="Отправить сообщение" data-kg="Кабар жөнөтүү">Отправить сообщение</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="#" class="footer-logo"><span class="logo-badge">7</span>Маркет</a>
+        <p class="footer-desc" data-ru="Интернет-магазин бытовых товаров в Өзгөне. Доставка по всему Кыргызстану." data-kg="Өзгөндөгү турмуш-тиричилик товарларынын интернет-дүкөнү. Бүткүл Кыргызстан боюнча жеткирүү.">Интернет-магазин бытовых товаров в Өзгөне. Доставка по всему Кыргызстану.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-ru="Навигация" data-kg="Навигация">Навигация</h4>
+        <a href="https://b2b.moysklad.ru/public/qQLeoMdHrYYH" target="_blank" data-ru="Каталог" data-kg="Каталог">Каталог</a>
+        <a href="#how" data-ru="Как заказать" data-kg="Кантип буйрутма берем">Как заказать</a>
+        <a href="#sellers" data-ru="Продавцам" data-kg="Сатуучуларга">Продавцам</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts" data-ru="Контакты" data-kg="Байланыш">Контакты</a>
+      </div>
+      <div class="footer-links">
+        <h4 data-ru="Связь" data-kg="Байланыш">Связь</h4>
+        <a href="https://wa.me/996556030083" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/7.market__" target="_blank">Instagram</a>
+        <a href="tel:+996556030083">+996 556 030 083</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-ru="© 2025 7 Маркет. Все права защищены." data-kg="© 2025 7 Маркет. Бардык укуктар корголгон.">© 2025 7 Маркет. Все права защищены.</span>
+      <span>г. Өзгөн, Кыргызстан</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/996556030083" class="wa-float" target="_blank">💬</a>
+
+<script>
+var currentLang='ru';
+function setLang(lang){
+  currentLang=lang;
+  document.getElementById('btn-ru').classList.toggle('active',lang==='ru');
+  document.getElementById('btn-kg').classList.toggle('active',lang==='kg');
+  document.querySelectorAll('[data-ru]').forEach(function(el){
+    var text=el.getAttribute('data-'+lang);
+    if(!text)return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=text;}
+    else{el.textContent=text;}
+  });
+  document.querySelectorAll('.faq-a').forEach(function(el){
+    var t=el.getAttribute('data-'+lang);
+    if(t)el.textContent=t;
+  });
+}
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+  if(!isOpen)item.classList.add('open');
+}
+function submitSeller(){
+  var name=document.getElementById('s-name').value.trim();
+  var price=document.getElementById('s-price').value.trim();
+  var cat=document.getElementById('s-cat').value;
+  var desc=document.getElementById('s-desc').value.trim();
+  var seller=document.getElementById('s-seller').value.trim();
+  var phone=document.getElementById('s-phone').value.trim();
+  if(!name||!price||!seller||!phone){
+    alert(currentLang==='ru'?'Заполните обязательные поля: название, цена, имя и WhatsApp':'Милдеттүү талааларды толтуруңуз');
+    return;
+  }
+  var msg='🛍 '+(currentLang==='ru'?'Новая заявка от продавца!':'Сатуучудан жаңы арыз!')+'\n\n';
+  msg+='📦 Товар: '+name+'\n💰 '+(currentLang==='ru'?'Цена':'Баасы')+': '+price+' сом\n';
+  msg+='📂 '+(currentLang==='ru'?'Категория':'Категория')+': '+(cat||'—')+'\n';
+  if(desc)msg+='📝 '+(currentLang==='ru'?'Описание':'Сүрөттөмө')+': '+desc+'\n';
+  msg+='\n👤 '+(currentLang==='ru'?'Продавец':'Сатуучу')+': '+seller+'\n📞 WhatsApp: '+phone;
+  window.open('https://wa.me/996556030083?text='+encodeURIComponent(msg),'_blank');
+}
+function submitContact(){
+  var name=document.getElementById('c-name').value.trim();
+  var phone=document.getElementById('c-phone').value.trim();
+  var msg=document.getElementById('c-msg').value.trim();
+  if(!msg){alert(currentLang==='ru'?'Напишите ваше сообщение':'Кабарыңызды жазыңыз');return;}
+  var text=(currentLang==='ru'?'Сообщение с сайта 7 Маркет':'7 Маркет сайтынан кабар')+'\n\n';
+  if(name)text+='👤 '+(currentLang==='ru'?'Имя':'Аты')+': '+name+'\n';
+  if(phone)text+='📞 Телефон: '+phone+'\n';
+  text+='\n💬 '+msg;
+  window.open('https://wa.me/996556030083?text='+encodeURIComponent(text),'_blank');
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var href=a.getAttribute('href');
+    if(href==='#')return;
+    var target=document.querySelector(href);
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+</body>
+</html>
