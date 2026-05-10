@@ -60,7 +60,7 @@ section{padding:80px 24px}
 .section-sub{font-size:17px;color:var(--gray);max-width:520px;margin-bottom:48px}
 .how{background:var(--black)}
 .how .section-tag{color:var(--green-light)}
-.how .section-title,.how .section-sub{color:#fff}
+.how .section-title{color:#fff}
 .how .section-sub{color:#888}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.07);border-radius:var(--radius);overflow:hidden}
 .step{background:#1a1a1a;padding:36px 28px}
@@ -88,8 +88,6 @@ section{padding:80px 24px}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--green)}
 .form-textarea{height:90px;resize:vertical}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.upload-zone{border:2px dashed var(--border);border-radius:var(--radius-sm);padding:20px;text-align:center;cursor:pointer;transition:border-color 0.2s,color 0.2s;color:var(--gray);font-size:14px;line-height:1.6}
-.upload-zone:hover{border-color:var(--green);color:var(--green)}
 .form-btn{width:100%;background:var(--green);color:#fff;border:none;border-radius:var(--radius-sm);padding:14px;font-size:16px;font-weight:600;cursor:pointer;font-family:'Golos Text',sans-serif;transition:background 0.2s;margin-top:8px}
 .form-btn:hover{background:var(--green-light)}
 .faq{background:var(--gray-light)}
@@ -152,13 +150,13 @@ section{padding:56px 20px}
 </style>
 </head>
 <body>
-
+ 
 <div class="lang-bar">
-  <span>🌐</span>
+  <span>Язык / Тил:</span>
   <button class="lang-btn active" onclick="setLang('ru')" id="btn-ru">RU</button>
   <button class="lang-btn" onclick="setLang('kg')" id="btn-kg">KG</button>
 </div>
-
+ 
 <header>
   <div class="header-inner">
     <a href="#" class="logo"><span class="logo-badge">7</span>Маркет</a>
@@ -172,84 +170,144 @@ section{padding:56px 20px}
     <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
-
+ 
 <div class="mobile-nav" id="mobileNav">
-  <button class="mob-close" onclick="toggleMenu()">✕</button>
+  <button class="mob-close" onclick="toggleMenu()">X</button>
   <a href="#how" onclick="toggleMenu()" data-ru="Как заказать" data-kg="Кантип буйрутма берем">Как заказать</a>
   <a href="#sellers" onclick="toggleMenu()" data-ru="Продавцам" data-kg="Сатуучуларга">Продавцам</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#contacts" onclick="toggleMenu()" data-ru="Контакты" data-kg="Байланыш">Контакты</a>
   <a href="https://wa.me/996556030083" class="mob-wa" target="_blank">WhatsApp</a>
 </div>
-
+ 
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-tag">Өзгөн · Кыргызстан</span>
+    <span class="hero-tag">Ozgon · Kyrgyzstan</span>
     <h1>
-      <span data-ru="Всё для дома —" data-kg="Үй үчүн баары —">Всё для дома —</span><br>
+      <span data-ru="Всё для дома —" data-kg="Уй учун баары —">Всё для дома —</span><br>
       <span class="green-text" data-ru="в одном месте" data-kg="бир жерде">в одном месте</span>
     </h1>
-    <p class="hero-desc" data-ru="Бытовые товары с быстрой доставкой по всему Кыргызстану. Удобный каталог, честные цены." data-kg="Тез жеткирүү менен турмуш-тиричилик товарлары. Ыңгайлуу каталог, адилет баалар.">Бытовые товары с быстрой доставкой по всему Кыргызстану. Удобный каталог, честные цены.</p>
+    <p class="hero-desc" data-ru="Бытовые товары с быстрой доставкой по всему Кыргызстану. Удобный каталог, честные цены." data-kg="Тез жеткируу менен турмуш-тиричилик товарлары. Ынгайлуу каталог, адилет баалар.">Бытовые товары с быстрой доставкой по всему Кыргызстану. Удобный каталог, честные цены.</p>
     <div class="hero-btns">
-      <a href="https://b2b.moysklad.ru/public/qQLeoMdHrYYH" class="btn-primary" target="_blank" data-ru="Перейти в каталог →" data-kg="Каталогго өтүү →">Перейти в каталог →</a>
+      <a href="https://b2b.moysklad.ru/public/qQLeoMdHrYYH" class="btn-primary" target="_blank" data-ru="Перейти в каталог" data-kg="Каталогго отуу">Перейти в каталог</a>
       <a href="https://wa.me/996556030083" class="btn-outline" target="_blank" data-ru="Написать в WhatsApp" data-kg="WhatsApp жазуу">Написать в WhatsApp</a>
     </div>
     <div class="hero-stats">
       <div><div class="stat-num">500+</div><div class="stat-label" data-ru="Товаров в каталоге" data-kg="Каталогдогу товарлар">Товаров в каталоге</div></div>
-      <div><div class="stat-num" data-ru="1 день" data-kg="1 күн">1 день</div><div class="stat-label" data-ru="Доставка по городу" data-kg="Шаар боюнча жеткирүү">Доставка по городу</div></div>
+      <div><div class="stat-num" data-ru="1 день" data-kg="1 кун">1 день</div><div class="stat-label" data-ru="Доставка по городу" data-kg="Шаар боюнча жеткируу">Доставка по городу</div></div>
       <div><div class="stat-num">100%</div><div class="stat-label" data-ru="Гарантия качества" data-kg="Сапат кепилдиги">Гарантия качества</div></div>
       <div><div class="stat-num" data-ru="3 года" data-kg="3 жыл">3 года</div><div class="stat-label" data-ru="На рынке" data-kg="Рынокто">На рынке</div></div>
     </div>
   </div>
 </section>
-
+ 
 <section class="how" id="how">
   <div class="section-inner">
-    <p class="section-tag" data-ru="Просто и быстро" data-kg="Жөнөкөй жана тез">Просто и быстро</p>
+    <p class="section-tag" data-ru="Просто и быстро" data-kg="Женекой жана тез">Просто и быстро</p>
     <h2 class="section-title" data-ru="Как сделать заказ" data-kg="Кантип буйрутма берем">Как сделать заказ</h2>
-    <p class="section-sub" data-ru="Три простых шага — и товар уже едет к вам" data-kg="Үч жөнөкөй кадам — товар сизге жол алды">Три простых шага — и товар уже едет к вам</p>
+    <p class="section-sub" data-ru="Три простых шага — и товар уже едет к вам" data-kg="Уч женекой кадам — товар сизге жол алды">Три простых шага — и товар уже едет к вам</p>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div class="step-title" data-ru="Выберите товар" data-kg="Товар тандаңыз">Выберите товар</div><div class="step-desc" data-ru="Откройте каталог, найдите нужный товар и запомните его название." data-kg="Каталогду ачып, керектүү товарды таап, атын эстеп алыңыз.">Откройте каталог, найдите нужный товар и запомните его название.</div></div>
-      <div class="step"><div class="step-num">02</div><div class="step-title" data-ru="Напишите нам" data-kg="Бизге жазыңыз">Напишите нам</div><div class="step-desc" data-ru="Отправьте название товара в WhatsApp — подтвердим наличие и оформим заказ." data-kg="Товардын атын WhatsAppка жөнөтүңүз — жеткиликтүүлүгүн ырастап, буйрутманы тариздейбиз.">Отправьте название товара в WhatsApp — подтвердим наличие и оформим заказ.</div></div>
-      <div class="step"><div class="step-num">03</div><div class="step-title" data-ru="Получите товар" data-kg="Товарды алыңыз">Получите товар</div><div class="step-desc" data-ru="Доставим в удобное время. Оплата при получении или переводом." data-kg="Ыңгайлуу убакта жеткиребиз. Алгандан кийин же которуу аркылуу төлөм.">Доставим в удобное время. Оплата при получении или переводом.</div></div>
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title" data-ru="Выберите товар" data-kg="Товар тандануз">Выберите товар</div>
+        <div class="step-desc" data-ru="Откройте каталог, найдите нужный товар и запомните его название." data-kg="Каталогду ачып, керектуу товарды таап, атын эстеп алынуз.">Откройте каталог, найдите нужный товар и запомните его название.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title" data-ru="Напишите нам" data-kg="Бизге жазынуз">Напишите нам</div>
+        <div class="step-desc" data-ru="Отправьте название товара в WhatsApp — подтвердим наличие и оформим заказ." data-kg="Товардын атын WhatsAppка жонотунуз — жеткиликтуулугун ырастап, буйрутманы тариздейбиз.">Отправьте название товара в WhatsApp — подтвердим наличие и оформим заказ.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title" data-ru="Получите товар" data-kg="Товарды алынуз">Получите товар</div>
+        <div class="step-desc" data-ru="Доставим в удобное время. Оплата при получении или переводом." data-kg="Ынгайлуу убакта жеткиребиз. Алгандан кийин же которуу аркылуу толом.">Доставим в удобное время. Оплата при получении или переводом.</div>
+      </div>
     </div>
   </div>
 </section>
-
+ 
 <section id="about">
   <div class="section-inner">
-    <p class="section-tag" data-ru="Почему мы" data-kg="Эмне үчүн биз">Почему мы</p>
+    <p class="section-tag" data-ru="Почему мы" data-kg="Эмне учун биз">Почему мы</p>
     <h2 class="section-title" data-ru="Наши преимущества" data-kg="Биздин артыкчылыктар">Наши преимущества</h2>
-    <p class="section-sub" data-ru="Работаем честно и заботимся о каждом клиенте" data-kg="Чынчылдык менен иштейбиз жана ар бир кардар жөнүндө кам көрөбүз">Работаем честно и заботимся о каждом клиенте</p>
+    <p class="section-sub" data-ru="Работаем честно и заботимся о каждом клиенте" data-kg="Чынчылдык менен иштейбиз жана ар бир кардар женунде кам коробуз">Работаем честно и заботимся о каждом клиенте</p>
     <div class="adv-grid">
-      <div class="adv-card"><div class="adv-icon">🚚</div><div class="adv-title" data-ru="Быстрая доставка" data-kg="Тез жеткирүү">Быстрая доставка</div><div class="adv-desc" data-ru="По Өзгөну — в день заказа. По всему Кыргызстану — 1–3 дня." data-kg="Өзгөн боюнча — буйрутма берген күнү. Кыргызстан боюнча — 1–3 күн.">По Өзгөну — в день заказа. По всему Кыргызстану — 1–3 дня.</div></div>
-      <div class="adv-card"><div class="adv-icon">✅</div><div class="adv-title" data-ru="Проверенные товары" data-kg="Текшерилген товарлар">Проверенные товары</div><div class="adv-desc" data-ru="Все товары проходят проверку качества перед отправкой." data-kg="Бардык товарлар жөнөтүлүүдөн мурун сапат текшерүүдөн өтөт.">Все товары проходят проверку качества перед отправкой.</div></div>
-      <div class="adv-card"><div class="adv-icon">💬</div><div class="adv-title" data-ru="Поддержка 24/7" data-kg="Колдоо 24/7">Поддержка 24/7</div><div class="adv-desc" data-ru="Всегда на связи в WhatsApp. Поможем выбрать и оформить заказ." data-kg="WhatsAppта дайым байланышта. Тандоого жана буйрутма берүүгө жардам беребиз.">Всегда на связи в WhatsApp. Поможем выбрать и оформить заказ.</div></div>
-      <div class="adv-card"><div class="adv-icon">🔄</div><div class="adv-title" data-ru="Возврат и обмен" data-kg="Кайтаруу жана алмаштыруу">Возврат и обмен</div><div class="adv-desc" data-ru="Если товар не подошёл — обменяем или вернём деньги." data-kg="Товар жарабаса — алмаштырабыз же акчаны кайтарабыз.">Если товар не подошёл — обменяем или вернём деньги.</div></div>
+      <div class="adv-card">
+        <div class="adv-icon">&#128666;</div>
+        <div class="adv-title" data-ru="Быстрая доставка" data-kg="Тез жеткируу">Быстрая доставка</div>
+        <div class="adv-desc" data-ru="По Озгону — в день заказа. По всему Кыргызстану — 1-3 дня." data-kg="Озгон боюнча — буйрутма берген кунуу. Кыргызстан боюнча — 1-3 кун.">По Озгону — в день заказа. По всему Кыргызстану — 1-3 дня.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">&#10003;</div>
+        <div class="adv-title" data-ru="Проверенные товары" data-kg="Текшерилген товарлар">Проверенные товары</div>
+        <div class="adv-desc" data-ru="Все товары проходят проверку качества перед отправкой." data-kg="Бардык товарлар жонотулуудон мурун сапат текшеруудон отот.">Все товары проходят проверку качества перед отправкой.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">&#128172;</div>
+        <div class="adv-title" data-ru="Поддержка 24/7" data-kg="Колдоо 24/7">Поддержка 24/7</div>
+        <div class="adv-desc" data-ru="Всегда на связи в WhatsApp. Поможем выбрать и оформить заказ." data-kg="WhatsAppта дайым байланышта. Тандоого жана буйрутма беруугу жардам беребиз.">Всегда на связи в WhatsApp. Поможем выбрать и оформить заказ.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">&#8635;</div>
+        <div class="adv-title" data-ru="Возврат и обмен" data-kg="Кайтаруу жана алмаштыруу">Возврат и обмен</div>
+        <div class="adv-desc" data-ru="Если товар не подошёл — обменяем или вернём деньги." data-kg="Товар жарабаса — алмаштырабыз же акчаны кайтарабыз.">Если товар не подошёл — обменяем или вернём деньги.</div>
+      </div>
     </div>
   </div>
 </section>
-
+ 
 <section class="sellers" id="sellers">
   <div class="section-inner">
     <div class="sellers-inner">
       <div>
-        <p class="section-tag" data-ru="Для продавцов" data-kg="Сатуучулар үчүн">Для продавцов</p>
-        <h2 class="section-title" data-ru="Продавайте через 7 Маркет" data-kg="7 Маркет аркылуу сатыңыз">Продавайте через 7 Маркет</h2>
-        <p class="section-sub" data-ru="Добавьте свои товары на платформу и получайте покупателей со всего Кыргызстана." data-kg="Товарларыңызды платформага кошуп, бүткүл Кыргызстандан сатып алуучулар алыңыз.">Добавьте свои товары на платформу и получайте покупателей со всего Кыргызстана.</p>
+        <p class="section-tag" data-ru="Для продавцов" data-kg="Сатуучулар учун">Для продавцов</p>
+        <h2 class="section-title" data-ru="Продавайте через 7 Маркет" data-kg="7 Маркет аркылуу сатынуз">Продавайте через 7 Маркет</h2>
+        <p class="section-sub" data-ru="Добавьте свои товары на платформу и получайте покупателей со всего Кыргызстана." data-kg="Товарларынызды платформага кошуп, буткул Кыргызстандан сатып алуучулар алынуз.">Добавьте свои товары на платформу и получайте покупателей со всего Кыргызстана.</p>
         <div class="sellers-perks">
-          <div class="perk"><div class="perk-ico">📦</div><div><div class="perk-title" data-ru="Бесплатное размещение" data-kg="Акысыз жайгаштыруу">Бесплатное размещение</div><div class="perk-desc" data-ru="Добавляйте товары без комиссии на старте" data-kg="Башында комиссиясыз товарларды кошуңуз">Добавляйте товары без комиссии на старте</div></div></div>
-          <div class="perk"><div class="perk-ico">👥</div><div><div class="perk-title" data-ru="Готовая аудитория" data-kg="Даяр аудитория">Готовая аудитория</div><div class="perk-desc" data-ru="Покупатели уже ищут товары на нашей платформе" data-kg="Сатып алуучулар платформабызда товар издеп жатышат">Покупатели уже ищут товары на нашей платформе</div></div></div>
-          <div class="perk"><div class="perk-ico">📈</div><div><div class="perk-title" data-ru="Простое управление" data-kg="Жөнөкөй башкаруу">Простое управление</div><div class="perk-desc" data-ru="Добавляйте и редактируйте товары в любое время" data-kg="Каалаган убакта товарларды кошуп жана өзгөртүңүз">Добавляйте и редактируйте товары в любое время</div></div></div>
-          <div class="perk"><div class="perk-ico">💬</div><div><div class="perk-title" data-ru="Поддержка продавцов" data-kg="Сатуучуларды колдоо">Поддержка продавцов</div><div class="perk-desc" data-ru="Поможем оформить карточки и начать продажи" data-kg="Карточкаларды тариздеп сатууну баштоого жардам беребиз">Поможем оформить карточки и начать продажи</div></div></div>
+          <div class="perk">
+            <div class="perk-ico">&#128230;</div>
+            <div>
+              <div class="perk-title" data-ru="Бесплатное размещение" data-kg="Акысыз жайгаштыруу">Бесплатное размещение</div>
+              <div class="perk-desc" data-ru="Добавляйте товары без комиссии на старте" data-kg="Башында комиссиясыз товарларды кошунуз">Добавляйте товары без комиссии на старте</div>
+            </div>
+          </div>
+          <div class="perk">
+            <div class="perk-ico">&#128101;</div>
+            <div>
+              <div class="perk-title" data-ru="Готовая аудитория" data-kg="Даяр аудитория">Готовая аудитория</div>
+              <div class="perk-desc" data-ru="Покупатели уже ищут товары на нашей платформе" data-kg="Сатып алуучулар платформабызда товар издеп жатышат">Покупатели уже ищут товары на нашей платформе</div>
+            </div>
+          </div>
+          <div class="perk">
+            <div class="perk-ico">&#128200;</div>
+            <div>
+              <div class="perk-title" data-ru="Простое управление" data-kg="Женекой башкаруу">Простое управление</div>
+              <div class="perk-desc" data-ru="Добавляйте и редактируйте товары в любое время" data-kg="Каалаган убакта товарларды кошуп жана озгортунуз">Добавляйте и редактируйте товары в любое время</div>
+            </div>
+          </div>
+          <div class="perk">
+            <div class="perk-ico">&#128172;</div>
+            <div>
+              <div class="perk-title" data-ru="Поддержка продавцов" data-kg="Сатуучуларды колдоо">Поддержка продавцов</div>
+              <div class="perk-desc" data-ru="Поможем оформить карточки и начать продажи" data-kg="Карточкаларды тариздеп сатууну баштоого жардам беребиз">Поможем оформить карточки и начать продажи</div>
+            </div>
+          </div>
         </div>
       </div>
+ 
       <div class="seller-form">
         <h3 data-ru="Добавить товар" data-kg="Товар кошуу">Добавить товар</h3>
-        <div class="form-group"><label class="form-label" data-ru="Название товара *" data-kg="Товардын аты *">Название товара *</label><input class="form-input" type="text" id="s-name" placeholder="Например: Чайник Tefal 1.7л"></div>
+        <div class="form-group">
+          <label class="form-label" data-ru="Название товара *" data-kg="Товардын аты *">Название товара *</label>
+          <input class="form-input" type="text" id="s-name" placeholder="Например: Чайник Tefal 1.7л">
+        </div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label" data-ru="Цена (сом) *" data-kg="Баасы (сом) *">Цена (сом) *</label><input class="form-input" type="number" id="s-price" placeholder="1290"></div>
-          <div class="form-group"><label class="form-label" data-ru="Категория *" data-kg="Категория *">Категория *</label>
+          <div class="form-group">
+            <label class="form-label" data-ru="Цена (сом) *" data-kg="Баасы (сом) *">Цена (сом) *</label>
+            <input class="form-input" type="number" id="s-price" placeholder="1290">
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-ru="Категория *" data-kg="Категория *">Категория *</label>
             <select class="form-select" id="s-cat">
               <option value="">Выберите...</option>
               <option>Кухня и посуда</option>
@@ -262,32 +320,77 @@ section{padding:56px 20px}
             </select>
           </div>
         </div>
-        <div class="form-group"><label class="form-label" data-ru="Описание товара" data-kg="Товардын сүрөттөмөсү">Описание товара</label><textarea class="form-textarea" id="s-desc" placeholder="Материал, размер, особенности..."></textarea></div>
-        <div class="form-row">
-          <div class="form-group"><label class="form-label" data-ru="Ваше имя *" data-kg="Атыңыз *">Ваше имя *</label><input class="form-input" type="text" id="s-seller" placeholder="Азамат"></div>
-          <div class="form-group"><label class="form-label">WhatsApp *</label><input class="form-input" type="tel" id="s-phone" placeholder="+996 XXX XXX XXX"></div>
+        <div class="form-group">
+          <label class="form-label" data-ru="Описание товара" data-kg="Товардын суроттомосу">Описание товара</label>
+          <textarea class="form-textarea" id="s-desc" placeholder="Материал, размер, особенности..."></textarea>
         </div>
-        <button class="form-btn" onclick="submitSeller()" data-ru="Отправить заявку →" data-kg="Арызды жөнөтүү →">Отправить заявку →</button>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" data-ru="Ваше имя *" data-kg="Атынуз *">Ваше имя *</label>
+            <input class="form-input" type="text" id="s-seller" placeholder="Азамат">
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp *</label>
+            <input class="form-input" type="tel" id="s-phone" placeholder="+996 XXX XXX XXX">
+          </div>
+        </div>
+        <button class="form-btn" onclick="submitSeller()" data-ru="Отправить заявку" data-kg="Арызды жонотуу">Отправить заявку</button>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <section id="faq">
   <div class="section-inner">
     <p class="section-tag" data-ru="Вопросы и ответы" data-kg="Суроолор жана жооптор">Вопросы и ответы</p>
-    <h2 class="section-title" data-ru="Часто спрашивают" data-kg="Көп суралган суроолор">Часто спрашивают</h2>
+    <h2 class="section-title" data-ru="Часто спрашивают" data-kg="Коп суралган суроолор">Часто спрашивают</h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Как оформить заказ?" data-kg="Кантип буйрутма берем?">Как оформить заказ?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Откройте каталог, найдите нужный товар и напишите нам в WhatsApp. Укажите название и адрес доставки — мы всё оформим." data-kg="Каталогду ачып, керектүү товарды таап, бизге WhatsAppка жазыңыз. Товардын атын жана дарегин айтыңыз — биз баарын тариздейбиз.">Откройте каталог, найдите нужный товар и напишите нам в WhatsApp. Укажите название и адрес доставки — мы всё оформим.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Как быстро доставляете?" data-kg="Канча убакта жеткиресиз?">Как быстро доставляете?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="По городу Өзгөн — в день заказа. По Ошской области — 1–2 дня. По всему Кыргызстану — 2–4 дня." data-kg="Өзгөн шаары боюнча — буйрутма берген күнү. Ош облусу боюнча — 1–2 күн. Бүткүл Кыргызстан боюнча — 2–4 күн.">По городу Өзгөн — в день заказа. По Ошской области — 1–2 дня. По всему Кыргызстану — 2–4 дня.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Как оплатить заказ?" data-kg="Буйрутманы кантип төлөйм?">Как оплатить заказ?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Принимаем наличными при получении, переводом на карту, а также через Мбанк, О!Деньги и Элсом." data-kg="Алгандан кийин накталай, картага которуу, ошондой эле Мбанк, О!Акча жана Элсом аркылуу кабыл алабыз.">Принимаем наличными при получении, переводом на карту, а также через Мбанк, О!Деньги и Элсом.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Можно ли вернуть товар?" data-kg="Товарды кайтарсам болобу?">Можно ли вернуть товар?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Да. Если товар с браком или не соответствует описанию — возврат или обмен в течение 7 дней." data-kg="Ооба. Товарда ак бар же сүрөттөмөгө туура келбесе — 7 күн ичинде кайтаруу же алмаштыруу.">Да. Если товар с браком или не соответствует описанию — возврат или обмен в течение 7 дней.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Как добавить товар на платформу?" data-kg="Товарды платформага кантип кошом?">Как добавить товар на платформу?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Заполните форму в разделе «Продавцам» — название, цена, категория и фото. Рассмотрим заявку в течение 24 часов." data-kg="«Сатуучулар» бөлүмүндөгү формани толтуруңуз — аты, баасы, категориясы жана сүрөт. Арызды 24 саат ичинде карайбыз.">Заполните форму в разделе «Продавцам» — название, цена, категория и фото. Рассмотрим заявку в течение 24 часов.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-ru="Есть ли минимальная сумма заказа?" data-kg="Буйрутманын минималдуу суммасы барбы?">Есть ли минимальная сумма заказа?</span><span class="faq-icon">+</span></button><div class="faq-a" data-ru="Нет минимальной суммы. Доставка по Өзгөну бесплатна при заказе от 1 000 сом." data-kg="Минималдуу сумма жок. 1 000 сомдон жогору буйрутмада Өзгөн боюнча жеткирүү акысыз.">Нет минимальной суммы. Доставка по Өзгөну бесплатна при заказе от 1 000 сом.</div></div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-ru="Как оформить заказ?" data-kg="Кантип буйрутма берем?">Как оформить заказ?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-ru="Откройте каталог, найдите нужный товар и напишите нам в WhatsApp. Укажите название и адрес доставки — мы всё оформим." data-kg="Каталогду ачып, керектуу товарды таап, бизге WhatsAppка жазынуз. Товардын атын жана дарегин айтынуз — биз баарын тариздейбиз.">Откройте каталог, найдите нужный товар и напишите нам в WhatsApp. Укажите название и адрес доставки — мы всё оформим.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-ru="Как быстро доставляете?" data-kg="Канча убакта жеткиресиз?">Как быстро доставляете?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-ru="По городу Озгон — в день заказа. По Ошской области — 1-2 дня. По всему Кыргызстану — 2-4 дня." data-kg="Озгон шаары боюнча — буйрутма берген кунуу. Ош облусу боюнча — 1-2 кун. Буткул Кыргызстан боюнча — 2-4 кун.">По городу Озгон — в день заказа. По Ошской области — 1-2 дня. По всему Кыргызстану — 2-4 дня.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-ru="Как оплатить заказ?" data-kg="Буйрутманы кантип толойм?">Как оплатить заказ?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-ru="Принимаем наличными при получении, переводом на карту, а также через Мбанк, О!Деньги и Элсом." data-kg="Алгандан кийин накталай, картага которуу, ошондой эле Мбанк, О!Акча жана Элсом аркылуу кабыл алабыз.">Принимаем наличными при получении, переводом на карту, а также через Мбанк, О!Деньги и Элсом.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-ru="Можно ли вернуть товар?" data-kg="Товарды кайтарсам болобу?">Можно ли вернуть товар?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-ru="Да. Если товар с браком или не соответствует описанию — возврат или обмен в течение 7 дней." data-kg="Ооба. Товарда ак бар же суроттомого туура келбесе — 7 кун ичинде кайтаруу же алмаштыруу.">Да. Если товар с браком или не соответствует описанию — возврат или обмен в течение 7 дней.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-ru="Как добавить товар на платформу?" data-kg="Товарды платформага кантип кошом?">Как добавить товар на платформу?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-ru="Заполните форму в разделе Продавцам — название, цена, категория. Рассмотрим заявку в течение 24 часов." data-kg="Сатуучулар болумундогу формани толтуруунуз — аты, баасы, категориясы. Арызды 24 саат ичинде карайбыз.">Заполните форму в разделе Продавцам — название, цена, категория. Рассмотрим заявку в течение 24 часов.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-ru="Есть ли минимальная сумма заказа?" data-kg="Буйрутманын минималдуу суммасы барбы?">Есть ли минимальная сумма заказа?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" data-ru="Нет минимальной суммы. Доставка по Озгону бесплатна при заказе от 1000 сом." data-kg="Минималдуу сумма жок. 1000 сомдон жогору буйрутмада Озгон боюнча жеткируу акысыз.">Нет минимальной суммы. Доставка по Озгону бесплатна при заказе от 1000 сом.</div>
+      </div>
     </div>
   </div>
 </section>
-
+ 
 <section style="background:var(--gray-light)" id="contacts">
   <div class="section-inner">
     <p class="section-tag" data-ru="Связаться с нами" data-kg="Биз менен байланышуу">Связаться с нами</p>
@@ -295,9 +398,27 @@ section{padding:56px 20px}
     <div class="contacts-grid">
       <div class="contact-card">
         <h3 data-ru="Наши контакты" data-kg="Биздин байланыштар">Наши контакты</h3>
-        <div class="contact-row"><div class="contact-ico">📍</div><div><div class="contact-lbl" data-ru="Адрес" data-kg="Дарек">Адрес</div><div class="contact-val">г. Өзгөн, Кыргызстан</div></div></div>
-        <div class="contact-row"><div class="contact-ico">📞</div><div><div class="contact-lbl" data-ru="Телефон" data-kg="Телефон">Телефон</div><div class="contact-val"><a href="tel:+996556030083">+996 556 030 083</a></div></div></div>
-        <div class="contact-row"><div class="contact-ico">🕐</div><div><div class="contact-lbl" data-ru="Режим работы" data-kg="Иш убактысы">Режим работы</div><div class="contact-val" data-ru="Пн–Вс: 9:00 – 21:00" data-kg="Дш–Жк: 9:00 – 21:00">Пн–Вс: 9:00 – 21:00</div></div></div>
+        <div class="contact-row">
+          <div class="contact-ico">&#128205;</div>
+          <div>
+            <div class="contact-lbl" data-ru="Адрес" data-kg="Дарек">Адрес</div>
+            <div class="contact-val">г. Озгон, Кыргызстан</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-ico">&#128222;</div>
+          <div>
+            <div class="contact-lbl" data-ru="Телефон" data-kg="Телефон">Телефон</div>
+            <div class="contact-val"><a href="tel:+996556030083">+996 556 030 083</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-ico">&#128336;</div>
+          <div>
+            <div class="contact-lbl" data-ru="Режим работы" data-kg="Иш убактысы">Режим работы</div>
+            <div class="contact-val" data-ru="Пн-Вс: 9:00 - 21:00" data-kg="Дш-Жк: 9:00 - 21:00">Пн-Вс: 9:00 - 21:00</div>
+          </div>
+        </div>
         <div class="social-btns">
           <a href="https://wa.me/996556030083" class="soc-btn soc-wa" target="_blank">WhatsApp</a>
           <a href="https://www.instagram.com/7.market__" class="soc-btn soc-ig" target="_blank">Instagram</a>
@@ -305,21 +426,30 @@ section{padding:56px 20px}
       </div>
       <div class="contact-card">
         <h3 data-ru="Написать нам" data-kg="Бизге жазуу">Написать нам</h3>
-        <div class="form-group"><label class="form-label" data-ru="Ваше имя" data-kg="Атыңыз">Ваше имя</label><input class="form-input" type="text" id="c-name" placeholder="Азамат"></div>
-        <div class="form-group"><label class="form-label">Телефон / WhatsApp</label><input class="form-input" type="tel" id="c-phone" placeholder="+996 XXX XXX XXX"></div>
-        <div class="form-group"><label class="form-label" data-ru="Сообщение" data-kg="Кабар">Сообщение</label><textarea class="form-textarea" id="c-msg" placeholder="Напишите ваш вопрос..."></textarea></div>
-        <button class="form-btn" onclick="submitContact()" data-ru="Отправить сообщение" data-kg="Кабар жөнөтүү">Отправить сообщение</button>
+        <div class="form-group">
+          <label class="form-label" data-ru="Ваше имя" data-kg="Атынуз">Ваше имя</label>
+          <input class="form-input" type="text" id="c-name" placeholder="Азамат">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Телефон / WhatsApp</label>
+          <input class="form-input" type="tel" id="c-phone" placeholder="+996 XXX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-ru="Сообщение" data-kg="Кабар">Сообщение</label>
+          <textarea class="form-textarea" id="c-msg" placeholder="Напишите ваш вопрос..."></textarea>
+        </div>
+        <button class="form-btn" onclick="submitContact()" data-ru="Отправить сообщение" data-kg="Кабар жонотуу">Отправить сообщение</button>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div>
         <a href="#" class="footer-logo"><span class="logo-badge">7</span>Маркет</a>
-        <p class="footer-desc" data-ru="Интернет-магазин бытовых товаров в Өзгөне. Доставка по всему Кыргызстану." data-kg="Өзгөндөгү турмуш-тиричилик товарларынын интернет-дүкөнү. Бүткүл Кыргызстан боюнча жеткирүү.">Интернет-магазин бытовых товаров в Өзгөне. Доставка по всему Кыргызстану.</p>
+        <p class="footer-desc" data-ru="Интернет-магазин бытовых товаров в Озгоне. Доставка по всему Кыргызстану." data-kg="Озгондогу турмуш-тиричилик товарларынын интернет-дукону. Буткул Кыргызстан боюнча жеткируу.">Интернет-магазин бытовых товаров в Озгоне. Доставка по всему Кыргызстану.</p>
       </div>
       <div class="footer-links">
         <h4 data-ru="Навигация" data-kg="Навигация">Навигация</h4>
@@ -337,14 +467,14 @@ section{padding:56px 20px}
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-ru="© 2025 7 Маркет. Все права защищены." data-kg="© 2025 7 Маркет. Бардык укуктар корголгон.">© 2025 7 Маркет. Все права защищены.</span>
-      <span>г. Өзгөн, Кыргызстан</span>
+      <span data-ru="(c) 2025 7 Маркет. Все права защищены." data-kg="(c) 2025 7 Маркет. Бардык укуктар корголгон.">(c) 2025 7 Маркет. Все права защищены.</span>
+      <span>г. Озгон, Кыргызстан</span>
     </div>
   </div>
 </footer>
-
-<a href="https://wa.me/996556030083" class="wa-float" target="_blank">💬</a>
-
+ 
+<a href="https://wa.me/996556030083" class="wa-float" target="_blank">WA</a>
+ 
 <script>
 var currentLang='ru';
 function setLang(lang){
@@ -377,10 +507,10 @@ function submitSeller(){
   var seller=document.getElementById('s-seller').value.trim();
   var phone=document.getElementById('s-phone').value.trim();
   if(!name||!price||!seller||!phone){
-    alert(currentLang==='ru'?'Заполните обязательные поля: название, цена, имя и WhatsApp':'Милдеттуу талааларды толтуруунуз');
+    alert(currentLang==='ru'?'Заполните обязательные поля: название, цена, имя и WhatsApp':'Mildettuу talaaalardy toltuurunuz');
     return;
   }
-  var msg='=== '+(currentLang==='ru'?'Новая заявка от продавца':'Сатуучудан жаны арыз')+' ===\n\n';
+  var msg='=== '+(currentLang==='ru'?'Новая заявка от продавца':'Sатуучудан жаны арыз')+' ===\n\n';
   msg+=(currentLang==='ru'?'Товар':'Товар')+': '+name+'\n';
   msg+=(currentLang==='ru'?'Цена':'Баасы')+': '+price+' сом\n';
   msg+=(currentLang==='ru'?'Категория':'Категория')+': '+(cat||'—')+'\n';
@@ -399,7 +529,6 @@ function submitContact(){
   if(phone)text+='Телефон: '+phone+'\n';
   text+='\n'+(currentLang==='ru'?'Сообщение':'Кабар')+': '+msg;
   window.open('https://wa.me/996556030083?text='+encodeURIComponent(text),'_blank');
-}
 }
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
